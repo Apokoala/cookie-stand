@@ -2,7 +2,7 @@
 //header array with store times
 let hours = ['', '0600', '0700', '0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600', '1700', '1800', '1900', 'Daily Location Total'];
 let hourlyCookiesColumns = []
-for(let i = 0; i <14; i++){
+for (let i = 0; i < 14; i++) {
     hourlyCookiesColumns.push(0)
 }
 let siteCookieTotals = 0
@@ -44,7 +44,7 @@ function Location(cityLoc, minC, maxC, avgSale) {
 
         for (let i = 0; i < this.hourlyCookies.length; i++) {
             // console.log(hourlyCookiesColumns [i], this.hourlyCookies[i])
-            hourlyCookiesColumns[i] += this.hourlyCookies [i]
+            hourlyCookiesColumns[i] += this.hourlyCookies[i]
             total += this.hourlyCookies[i]
         }
         // console.log(hourlyCookiesColumns)
@@ -88,14 +88,14 @@ function renderTableHeader() {
 renderTableHeader();
 
 
-function renderTableFooter(){
+function renderTableFooter() {
     let footer = document.getElementById('tFoot');
     let row = document.createElement('tr');
     let tableCell = document.createElement('td');
 
     tableCell.innerText = 'Totals:';
     row.appendChild(tableCell);
-    for (let i=0; i < hourlyCookiesColumns.length; i++ ) {
+    for (let i = 0; i < hourlyCookiesColumns.length; i++) {
         let summations = document.createElement('td');
         summations.innerText = hourlyCookiesColumns[i]
         row.appendChild(summations);
@@ -103,8 +103,8 @@ function renderTableFooter(){
     }
     let finalCell = document.createElement('td')
     finalCell.innerText = siteCookieTotals
-    row.appendChild(finalCell)
-    footer.appendChild(row)
+    row.appendChild(finalCell);
+    footer.appendChild(row);
 
 
 }
