@@ -29,24 +29,24 @@ function Location(cityLoc, minC, maxC, avgSale) {
     //not sure if the above is necessary to store in the array or if i can just call the random numbers in the for loop below that is generating the cells were appending to the table.
     //this function will create row arrays for each object and store that array within the object and then append that row as a table row to the 
     this.cookieMove = function () {
-        let body = document.getElementById('tBody');    //WHAT THE FUCK IS HAPPENING HERE!
-        let row = document.createElement('tr');
-        let cityData = document.createElement('td');
+        let body = document.getElementById('tBody');    //WHAT THE FUCK IS HAPPENING HERE! old comment but still partially relevant
+        let row = document.createElement('tr'); //creating the row element
+        let cityData = document.createElement('td'); 
         let total = 0;
-        cityData.innerText = this.cityLoc
-        row.appendChild(cityData)
+        cityData.innerText = this.cityLoc 
+        row.appendChild(cityData) //first td on 'row' will be the city data
         for (let i = 0; i < this.hourlyCookies.length; i++) {
             let bodyData = document.createElement('td');
             bodyData.innerText = this.hourlyCookies[i]
             row.appendChild(bodyData);
         }
-        body.appendChild(row);
+        body.appendChild(row); //for the length of hourlyCookies it will iterate creating the data object, filling that object iteratively from array hourlyCookies and then append that to row. Row is then appended to the body.
 
         for (let i = 0; i < this.hourlyCookies.length; i++) {
             // console.log(hourlyCookiesColumns [i], this.hourlyCookies[i])
             hourlyCookiesColumns[i] += this.hourlyCookies[i]
             total += this.hourlyCookies[i]
-        }
+        }// 
         // console.log(hourlyCookiesColumns)
         let totalData = document.createElement('td');
         totalData.innerText = total
